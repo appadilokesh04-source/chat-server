@@ -1,7 +1,7 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Query
 from fastapi.responses import HTMLResponse
 from app.websocket.manager import ConnectionManager
-from app.database import create_pool, close_pool
+from app.database import create_pool, close_pool,init_db
 from app.redis_client import create_redis, close_redis, publish, is_rate_limited
 from app import database, redis_client
 from app.auth.routes import router as auth_router
@@ -20,6 +20,7 @@ app.include_router(rooms_router)
 async def startup():
     await create_pool()
     await create_redis()
+    await init_db()
 
 @app.on_event("shutdown")
 async def shutdown():
