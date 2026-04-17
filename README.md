@@ -10,7 +10,7 @@ This system enables:
   **Railway deployment** with auto-deploy from GitHub
 
 > This project demonstrates backend architecture, WebSocket integration, async database management, and cloud deployment.
-## 🛠️ Tech Stack
+##  Tech Stack
 | Technology | Purpose |
 |---|---|
 | Python FastAPI | Web Framework |
