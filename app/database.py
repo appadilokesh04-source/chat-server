@@ -1,6 +1,6 @@
 import aiomysql
 import asyncio
-from app.config import settings
+from app.config import Settings
 
 pool = None
 
@@ -10,11 +10,11 @@ async def create_pool():
     for i in range(retries):
         try:
             pool = await aiomysql.create_pool(
-                host=settings.DB_HOST,
-                port=settings.DB_PORT,
-                user=settings.DB_USER,
-                password=settings.DB_PASSWORD,
-                db=settings.DB_NAME,
+                host=Settings.DB_HOST,
+                port=Settings.DB_PORT,
+                user=Settings.DB_USER,
+                password=Settings.DB_PASSWORD,
+                db=Settings.DB_NAME,
                 minsize=2,
                 maxsize=10,
                 autocommit=True,
